@@ -1,0 +1,38 @@
+.tweet-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #888;
+}
+
+.tweet-author {
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.tweet-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.tweet-content {
+  margin: 0;
+  white-space: pre-wrap; /* Preserva as quebras de linha do conteúdo */
+}
+
+.tweet-footer {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #333;
+  color: #888;
+  font-size: 0.9rem;
+}
