@@ -20,7 +20,7 @@ import br.com.brenogobato.twitter_api.dto.CreatePostDTO;
 import br.com.brenogobato.twitter_api.dto.PostDTO;
 import br.com.brenogobato.twitter_api.services.PostService;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "https://twitter-api-tau.vercel.app"})
 @RestController
 @RequestMapping(value = "/posts")
 public class PostController {

@@ -17,7 +17,7 @@ import br.com.brenogobato.twitter_api.entities.Comentario;
 import br.com.brenogobato.twitter_api.repositories.ComentarioRepository;
 import br.com.brenogobato.twitter_api.services.ComentarioService;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "https://twitter-api-tau.vercel.app"})
 @RestController
 @RequestMapping(value = "/posts/{postId}/comentarios")
 public class ComentarioController {
