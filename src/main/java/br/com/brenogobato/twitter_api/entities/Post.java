@@ -1,9 +1,22 @@
 package br.com.brenogobato.twitter_api.entities;
 
-import jakarta.persistence.*;
-import java.util.Date;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
+import java.util.List; // Garante que temos todos os imports de persistência
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_posts")
@@ -14,27 +27,26 @@ public class Post {
     private Long id;
 
     private Date momentoPost;
-    private String tituloPost;
     private String conteudoPost;
     private int likes;
 
-    @ManyToOne // Muitos Posts para Um Usuário
+    @ManyToOne
     @JoinColumn(name = "usuario_id")
+    @JsonBackReference
     private Usuario autor;
 
-    @OneToMany(mappedBy = "post") // Um Post para Muitos Comentários
+    // Ajuste final na anotação @OneToMany
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Comentario> comentarios = new ArrayList<>();
 
     // Construtores, Getters e Setters...
-    // (Você pode gerar automaticamente na sua IDE ou copiar daqui)
     public Post() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public Date getMomentoPost() { return momentoPost; }
     public void setMomentoPost(Date momentoPost) { this.momentoPost = momentoPost; }
-    public String getTituloPost() { return tituloPost; }
-    public void setTituloPost(String tituloPost) { this.tituloPost = tituloPost; }
     public String getConteudoPost() { return conteudoPost; }
     public void setConteudoPost(String conteudoPost) { this.conteudoPost = conteudoPost; }
     public int getLikes() { return likes; }

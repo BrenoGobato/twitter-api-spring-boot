@@ -1,6 +1,14 @@
 package br.com.brenogobato.twitter_api.entities;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_comentarios")
@@ -18,6 +26,7 @@ public class Comentario {
 
     @ManyToOne // Muitos Comentários para Um Post
     @JoinColumn(name = "post_id")
+    @JsonBackReference
     private Post post;
 
     // Construtores, Getters e Setters...

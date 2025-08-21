@@ -1,0 +1,58 @@
+.add-tweet-form {
+  background-color: #ffffff; /* Fundo branco, combinando com o modal */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-tweet-form h2 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #14171a; /* Texto escuro */
+}
+
+.add-tweet-form input,
+.add-tweet-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccd6dd; /* Borda cinza clara */
+  background-color: #f5f8fa; /* Fundo do input levemente cinza */
+  color: #14171a;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.add-tweet-form input:focus,
+.add-tweet-form textarea:focus {
+    outline: none;
+    border-color: #1DA1F2; /* Borda azul ao focar */
+    background-color: #fff;
+}
+
+.add-tweet-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.add-tweet-form button {
+  align-self: flex-end; /* Alinha o botão à direita */
+  width: auto;
+  min-width: 100px;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 9999px; /* Botão bem redondo */
+  background-color: #1DA1F2; /* Azul do Twitter */
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-tweet-form button:hover {
+  background-color: #0c85d0; /* Azul mais escuro no hover */
+}

@@ -3,18 +3,19 @@ export interface User {
   nome: string;
 }
 
-export interface Comment {
-  id: number;
-  textoComentario: string;
-  autor: User;
-}
-
 export interface Post {
   id: number;
-  momentoPost: string; // A data virá como texto (String)
-  tituloPost: string;
+  momentoPost: string;
   conteudoPost: string;
   likes: number;
   autor: User;
-  comentarios: Comment[];
+  comentarios: any[]; // Simplificado
+}
+
+export interface Comment {
+  id: number;
+  textoComentario: string;
+  autor: {
+    nome: string;
+  };
 }
