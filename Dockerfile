@@ -1,5 +1,5 @@
 # Usa uma imagem base oficial do Java 17.
-FROM openjdk:17-slim
+FROM openjdk:17-jdk-slim
 
 # Define o diretório de trabalho dentro do container.
 WORKDIR /app
