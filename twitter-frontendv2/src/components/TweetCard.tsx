@@ -7,6 +7,8 @@ interface TweetCardProps {
   post: Post;
   onPostDeleted: (deletedPostId: number) => void;
   onPostUpdated: () => void;
+  allowDelete: boolean;
+  usuarioAtual: string; // NOVA PROP: Recebe quem está logado
 }
 
 const formatarData = (dataString: string) => {
@@ -19,13 +21,12 @@ const formatarData = (dataString: string) => {
   });
 };
 
-export function TweetCard({ post, onPostDeleted, onPostUpdated }: TweetCardProps) {
+export function TweetCard({ post, onPostDeleted, onPostUpdated, allowDelete, usuarioAtual }: TweetCardProps) {
   const [likesCount, setLikesCount] = useState(post.likes);
   const [showComments, setShowComments] = useState(false);
   const [comentariosCount, setComentariosCount] = useState(0);
   const [comentariosAtualizados, setComentariosAtualizados] = useState(false);
 
-  // Buscar a contagem real de comentários
   useEffect(() => {
     const buscarContagemComentarios = async () => {
       try {
@@ -36,7 +37,6 @@ export function TweetCard({ post, onPostDeleted, onPostUpdated }: TweetCardProps
         }
       } catch (error) {
         console.error('Erro ao buscar comentários:', error);
-        // Se der erro, usa a contagem dos props
         setComentariosCount(post.comentarios?.length || 0);
       }
     };
@@ -79,17 +79,21 @@ export function TweetCard({ post, onPostDeleted, onPostUpdated }: TweetCardProps
   };
 
   const handleCommentAdded = () => {
-    // Força a atualização da contagem
     setComentariosAtualizados(prev => !prev);
-    // Notifica o componente pai para atualizar os posts
     onPostUpdated();
   };
 
   return (
     <div className="tweet-card-container">
       <div className="tweet-avatar">
-        <img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" alt="Avatar" />
-      </div>
+      {/* Usamos o nome do autor como 'semente' para gerar a imagem */}
+      <img 
+        src={`https://api.dicebear.com/9.x/avataaars/svg?seed=${encodeURIComponent(post.autor.nome)}`} 
+        alt={`Avatar de ${post.autor.nome}`}
+        // Adicionei um estilo para garantir que fique redondo e do tamanho certo
+        style={{ borderRadius: '50%', width: '48px', height: '48px' }}
+      />
+    </div>
       <div className="tweet-main">
         <div className="tweet-header">
           <span className="tweet-author">{post.autor.nome}</span>
@@ -107,13 +111,18 @@ export function TweetCard({ post, onPostDeleted, onPostUpdated }: TweetCardProps
           <button onClick={() => setShowComments(!showComments)} className="comment-button">
             💬 {comentariosCount} Comentários
           </button>
-          <button onClick={handleDelete} className="delete-button-tweet">Deletar</button>
+          
+          {allowDelete && (
+            <button onClick={handleDelete} className="delete-button-tweet">Deletar</button>
+          )}
         </div>
         
         {showComments && (
           <TweetComments 
             postId={post.id}
             onCommentAdded={handleCommentAdded}
+            // NOVA PROP: Repassando o usuário para os comentários
+            usuarioAtual={usuarioAtual}
           />
         )}
       </div>

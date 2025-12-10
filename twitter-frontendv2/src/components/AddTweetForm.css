@@ -1,0 +1,65 @@
+.add-tweet-form {
+  background-color: #ffffff;
+  padding: 0 24px 24px 24px; 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+}
+
+.add-tweet-form h2 {
+  /* Expande o título para as bordas do modal */
+  margin: 0 -24px 15px -24px; 
+  padding: 15px 24px;
+  font-size: 1.5rem;
+  font-weight: 700; 
+  text-align: left; 
+  color: #0f1419;
+  border-bottom: 1px solid #eff3f4; 
+  
+  /* Ajusta o padding superior para o botão de fechar */
+  padding-top: 50px; 
+}
+
+/* Inputs e Textarea (Borda inferior azul ao focar) */
+.add-tweet-form input,
+.add-tweet-form textarea {
+  width: 100%;
+  padding: 0.9rem 0; 
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid #d3d9de; 
+  background-color: #ffffff; 
+  color: #0f1419;
+  font-size: 1.1rem;
+  transition: border-color 0.2s;
+}
+
+.add-tweet-form input:focus,
+.add-tweet-form textarea:focus {
+  outline: none;
+  border-color: #1d9bf0; 
+}
+
+.add-tweet-form textarea {
+  min-height: 120px;
+  resize: vertical;
+  padding: 15px 0; 
+}
+
+/* Botão de Postar no Modal */
+.add-tweet-form button {
+  align-self: flex-end;
+  padding: 0.6rem 1.6rem;
+  border: none;
+  border-radius: 9999px;
+  background-color: #1d9bf0;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-tweet-form button:hover {
+  background-color: #1a8cd8;
+}

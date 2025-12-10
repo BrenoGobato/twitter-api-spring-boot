@@ -1,0 +1,119 @@
+.tweet-card-container {
+  display: flex;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e5e8eb;
+  background-color: #fff;
+  transition: 0.2s;
+}
+
+.comment-button {
+  background: none;
+  border: none;
+  color: #536471;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.2s;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.comment-button:hover {
+  background-color: rgba(29, 155, 240, 0.1);
+  color: #1d9bf0;
+}
+
+
+.tweet-card-container:hover {
+  background-color: #f5f8fa;
+}
+
+.tweet-avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.tweet-main {
+  width: 100%;
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tweet-author {
+  font-weight: 600;
+  color: #0f1419;
+  font-size: 0.95rem;
+}
+
+.tweet-handle,
+.tweet-date,
+.tweet-dot {
+  color: #536471;
+  font-size: 0.85rem;
+}
+
+.tweet-body {
+  margin-top: 4px;
+}
+
+.tweet-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.tweet-content {
+  margin: 3px 0 0;
+  white-space: pre-wrap;
+  line-height: 1.45;
+  color: #0f1419;
+}
+
+/* FOOTER */
+.tweet-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  color: #536471;
+  font-size: 0.88rem;
+}
+
+.delete-button-tweet {
+  background: none;
+  border: 1px solid #f4212e;
+  color: #f4212e;
+  border-radius: 9999px;
+  padding: 5px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete-button-tweet:hover {
+  background-color: rgba(244, 33, 46, 0.15);
+}
+
+.like-button {
+  background: none;
+  border: none;
+  color: #536471;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.2s;
+}
+
+.like-button:hover {
+  color: #f91880;
+}
